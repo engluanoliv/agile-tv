@@ -1,3 +1,4 @@
+import Footer from '@/components/Footer/Footer'
 import './home.scss'
 import Header from '@/components/Header/Header'
 import Search from '@/components/Search/Search'
@@ -11,6 +12,7 @@ const HomePage = (): JSX.Element => {
         <GoogleLogo />
         <Search />
       </main>
+      <Footer />
     </div>
   )
 }

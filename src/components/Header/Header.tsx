@@ -12,7 +12,7 @@ const Header = (): JSX.Element => {
           <strong>Agile Content </strong>
           Frontend test
         </h1>
-        <div className='container'>
+        <div className='header__menu'>
           <AppsRoundedIcon />
           <Avatar className='header__avatar' src={avatarImage} />
         </div>

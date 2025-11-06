@@ -1,5 +1,5 @@
 import { Route, Routes } from 'react-router'
-import HomePage from '../screens/Home/Home'
+import HomePage from '../pages/Home/Home'
 
 const AppRoutes = (): JSX.Element => {
   return (

@@ -22,15 +22,13 @@ const Search = (): JSX.Element => {
         type='text'
         value={value}
       />
-      {value && (
-        <Button
-          type='button'
-          className='search__closeIcon'
-          onClick={() => setValue('')}
-        >
-          <CloseRoundedIcon />
-        </Button>
-      )}
+      <Button
+        type='button'
+        className={`search__closeIcon ${value ? 'visible' : ''}`}
+        onClick={() => setValue('')}
+      >
+        <CloseRoundedIcon />
+      </Button>
     </div>
   )
 }
