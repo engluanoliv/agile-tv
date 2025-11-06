@@ -1,5 +1,6 @@
 import './home.scss'
 import Header from '@/components/Header/Header'
+import Search from '@/components/Search/Search'
 import GoogleLogo from '@/components/ui/GoogleLogo/GoogleLogo'
 
 const HomePage = (): JSX.Element => {
@@ -8,6 +9,7 @@ const HomePage = (): JSX.Element => {
       <Header />
       <main className='home__main'>
         <GoogleLogo />
+        <Search />
       </main>
     </div>
   )

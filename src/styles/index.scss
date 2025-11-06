@@ -1,5 +1,5 @@
 @use "./variables" as *;
-
+@use "./global.scss" as *;
 * {
   margin: 0;
   padding: 0;
@@ -23,22 +23,4 @@ body {
   margin: 0;
   padding: 0;
   -webkit-font-smoothing: antialiased;
-}
-
-.container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 8px;
-}
-
-.footer {
-  padding: 15px;
-  border-top: 1px solid var(--border-color);
-  text-align: center;
-  font-size: 13px;
-  color: #70757a;
-  position: fixed;
-  bottom: 0;
-  width: 100%;
 }

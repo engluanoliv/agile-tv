@@ -14,7 +14,7 @@ const Header = (): JSX.Element => {
         </h1>
         <div className='container'>
           <AppsRoundedIcon />
-          <Avatar src={avatarImage} />
+          <Avatar className='header__avatar' src={avatarImage} />
         </div>
       </div>
     </header>
