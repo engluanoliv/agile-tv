@@ -1,7 +1,13 @@
-.search {
-  position: relative;
-  width: 100%;
+.form {
   max-width: 480px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  &__search {
+    position: relative;
+  }
 
   &__input {
     width: 100%;
@@ -45,6 +51,26 @@
     &.visible {
       opacity: 1;
       pointer-events: auto;
+    }
+  }
+
+  &__searchButton {
+    background-color: #f2f2f2;
+    border: 1px solid var(--border-color);
+    padding: 10px 15px;
+    border-radius: 6px;
+    width: fit-content;
+    align-self: center;
+    cursor: pointer;
+    font-weight: 400;
+    transition: opacity 0.2s ease;
+    opacity: 0;
+    &.visible {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    &:hover {
+      background-color: #e9e9e9;
     }
   }
 }

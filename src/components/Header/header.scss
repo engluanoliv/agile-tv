@@ -28,4 +28,16 @@
     height: 35px;
     border-radius: 9999px;
   }
+
+  &__logoSearch {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+
+    .google {
+      font-size: 32px;
+      margin-bottom: 0;
+      line-height: 1;
+    }
+  }
 }
