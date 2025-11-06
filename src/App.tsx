@@ -1,7 +1,9 @@
+import './App.css'
+
 export default function App(): JSX.Element {
   return (
     <>
-      <p>App</p>
+      <p>App file</p>
     </>
   )
 }
