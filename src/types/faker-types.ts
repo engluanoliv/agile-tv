@@ -1,3 +1,8 @@
-import type { faker } from '@faker-js/faker'
-
-export type AnimalType = keyof typeof faker.animal
+export type FakerItem = {
+  type: string
+  id: number
+  url: string
+  title: string
+  description: string
+  image: string
+}

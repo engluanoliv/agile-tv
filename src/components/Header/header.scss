@@ -31,13 +31,34 @@
 
   &__logoSearch {
     display: flex;
-    align-items: center;
+    align-items: baseline;
     gap: 16px;
+    width: 100%;
 
     .google {
-      font-size: 32px;
+      font-size: 24px;
       margin-bottom: 0;
       line-height: 1;
+    }
+
+    .search {
+      width: 30%;
+
+      &__input {
+        width: 100%;
+        padding: 5px;
+        padding-left: 40px;
+      }
+
+      &__inputIcon {
+        width: 18px;
+        height: 18px;
+      }
+
+      &__closeIcon svg {
+        width: 18px;
+        height: 18px;
+      }
     }
   }
 }

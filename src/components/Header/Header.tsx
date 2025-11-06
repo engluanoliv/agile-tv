@@ -3,15 +3,29 @@ import AppsRoundedIcon from '@mui/icons-material/AppsRounded'
 import { getAvatarImage } from '@/utils/faker'
 import Avatar from '../ui/Avatar/Avatar'
 import GoogleLogo from '../ui/GoogleLogo/GoogleLogo'
-import Search from '../SearchForm/SearchForm'
+import SearchInput from '../SearchInput/SearchInput'
+import { useEffect, useState } from 'react'
+import { useLocation, useNavigate } from 'react-router'
 
 type HeaderProps = {
   showSearch?: boolean
   searchDefault?: string
 }
 
-const Header = ({ showSearch }: HeaderProps): JSX.Element => {
+const Header = ({ showSearch, searchDefault }: HeaderProps): JSX.Element => {
+  const [value, setValue] = useState(searchDefault)
   const avatarImage = getAvatarImage()
+
+  const navigate = useNavigate()
+  const { pathname } = useLocation()
+
+  useEffect(() => {
+    if (!showSearch) {
+      return
+    }
+    navigate(`${pathname}?q=${value}`, { replace: true })
+  }, [value, showSearch, pathname, navigate])
+
   return (
     <header className='header'>
       <div className='header__inner'>
@@ -23,7 +37,7 @@ const Header = ({ showSearch }: HeaderProps): JSX.Element => {
         ) : (
           <div className='header__logoSearch'>
             <GoogleLogo />
-            <Search />
+            <SearchInput value={value || ''} setValue={(e) => setValue(e)} />
           </div>
         )}
         <div className='header__menu'>

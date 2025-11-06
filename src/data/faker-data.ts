@@ -1,6 +1,7 @@
+import type { FakerItem } from '@/types/faker-types'
 import { getImage, getText, getTitle, getType, getUrl } from '@/utils/faker'
 
-const data = [...new Array(100)].map((_, index) => {
+const data: FakerItem[] = [...new Array(100)].map((_, index) => {
   const type = getType()
   return {
     type,

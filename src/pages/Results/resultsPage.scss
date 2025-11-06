@@ -1,0 +1,18 @@
+.results {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  &__main {
+    flex: 1;
+    padding: 24px 0;
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  &__stateMessage {
+    text-align: center;
+    margin-top: 80px;
+    font-size: 16px;
+    color: #555;
+  }
+}
