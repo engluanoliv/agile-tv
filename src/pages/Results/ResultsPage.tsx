@@ -5,6 +5,8 @@ import data from '@/data/faker-data'
 import type { FakerItem } from '@/types/faker-types'
 import { useEffect, useState } from 'react'
 import { useSearchParams } from 'react-router'
+import FakeItemCard from '@/components/FakeItemCard/FakeItemCard'
+import { useDialog } from '@/hooks/useDialog'
 
 const ResultsPage = (): JSX.Element => {
   const [params] = useSearchParams()
@@ -12,6 +14,9 @@ const ResultsPage = (): JSX.Element => {
 
   const [results, setResults] = useState<FakerItem[]>([])
   const [isLoading, setIsLoading] = useState(false)
+  const [selectedItem, setSelectedItem] = useState<FakerItem | null>(null)
+
+  const { onOpen } = useDialog()
 
   useEffect(() => {
     if (!search) {
@@ -20,6 +25,7 @@ const ResultsPage = (): JSX.Element => {
 
     setIsLoading(true)
     setResults([])
+    setSelectedItem(null)
 
     const timeout = setTimeout(() => {
       const filtered = data.filter(
@@ -33,6 +39,11 @@ const ResultsPage = (): JSX.Element => {
 
     return () => clearTimeout(timeout)
   }, [search])
+
+  const handleSelect = (item: FakerItem) => {
+    setSelectedItem(item)
+    onOpen('fakerItemDialog', { item })
+  }
 
   return (
     <div className='results'>
@@ -48,7 +59,15 @@ const ResultsPage = (): JSX.Element => {
           <p className='results__stateMessage'>No animals found.</p>
         )}
 
-        {!isLoading && results.length > 0 && <ListFakeItems results={results} />}
+        {!isLoading && results.length > 0 && (
+          <ListFakeItems
+            onSelectedItem={handleSelect}
+            selectedItem={selectedItem}
+            results={results}
+          />
+        )}
+
+        {selectedItem && <FakeItemCard item={selectedItem} />}
       </main>
     </div>
   )

@@ -1,0 +1,41 @@
+.card {
+  display: flex;
+  position: sticky;
+  top: 100px;
+  flex-direction: column;
+  grid-column: 3;
+  background: white;
+  z-index: 2;
+  border-radius: 8px;
+  padding: 16px;
+  border: 1px solid var(--border-color);
+  height: fit-content;
+  gap: 8px;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
+
+  &__image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+
+  &__url {
+    font-size: 12px;
+    font-weight: 600;
+    color: #4d5156;
+  }
+
+  &__title {
+    font-size: 16px;
+    font-weight: 600;
+    text-transform: capitalize;
+  }
+
+  &__description {
+    font-size: 14px;
+    color: #4d5156;
+  }
+}

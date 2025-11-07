@@ -1,11 +1,14 @@
 .list {
   display: flex;
   flex-direction: column;
+  grid-column: span 2;
   gap: 32px;
-  width: 100%;
-  max-width: 640px;
   margin: 0 auto;
   padding: 0 20px;
+
+  @media (max-width: 768px) {
+    grid-column: span 3;
+  }
 
   &__item {
     display: flex;

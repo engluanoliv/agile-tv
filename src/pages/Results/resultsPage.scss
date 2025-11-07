@@ -4,9 +4,10 @@
   min-height: 100vh;
   &__main {
     flex: 1;
-    padding: 24px 0;
-    display: flex;
-    justify-content: flex-start;
+    padding: 24px;
+    grid-template-columns: repeat(3, 1fr);
+    display: grid;
+    gap: 24px;
   }
 
   &__stateMessage {

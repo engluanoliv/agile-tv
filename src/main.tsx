@@ -3,6 +3,7 @@ import { createRoot } from 'react-dom/client'
 import './styles/index.scss'
 import App from './App.tsx'
 import { BrowserRouter } from 'react-router'
+import Providers from './providers/index.tsx'
 
 const rootElement = document.getElementById('root')
 
@@ -13,7 +14,9 @@ if (!rootElement) {
 createRoot(rootElement).render(
   <StrictMode>
     <BrowserRouter>
-      <App />
+      <Providers>
+        <App />
+      </Providers>
     </BrowserRouter>
   </StrictMode>,
 )

@@ -4,7 +4,7 @@ import { getAvatarImage } from '@/utils/faker'
 import Avatar from '../ui/Avatar/Avatar'
 import GoogleLogo from '../ui/GoogleLogo/GoogleLogo'
 import SearchInput from '../SearchInput/SearchInput'
-import { useEffect, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { useLocation, useNavigate } from 'react-router'
 
 type HeaderProps = {
@@ -14,7 +14,7 @@ type HeaderProps = {
 
 const Header = ({ showSearch, searchDefault }: HeaderProps): JSX.Element => {
   const [value, setValue] = useState(searchDefault)
-  const avatarImage = getAvatarImage()
+  const avatarImage = useMemo(() => getAvatarImage(), [])
 
   const navigate = useNavigate()
   const { pathname } = useLocation()
