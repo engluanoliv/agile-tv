@@ -1,4 +1,4 @@
-import './FakerItemDialog.scss'
+import './FakeItemDialog.scss'
 import { useDialog } from '@/hooks/useDialog'
 import Dialog from '../ui/Dialog'
 import FakeItemCard from '../FakeItemCard/FakeItemCard'

@@ -1,4 +1,4 @@
-import FakerItemDialog from '@/components/FakerItemDialog/FakerItemDialog'
+import FakerItemDialog from '@/components/FakeItemDialog/FakeItemDialog'
 import { useMountedState } from 'react-use'
 
 const DialogProvider = () => {

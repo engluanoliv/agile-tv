@@ -7,6 +7,7 @@ import { useEffect, useState } from 'react'
 import { useSearchParams } from 'react-router'
 import FakeItemCard from '@/components/FakeItemCard/FakeItemCard'
 import { useDialog } from '@/hooks/useDialog'
+import ListFakeItemsSkeleton from '@/components/ListFakeItemSkeleton/ListFakeItemsSkeleton'
 
 const ResultsPage = (): JSX.Element => {
   const [params] = useSearchParams()
@@ -49,7 +50,7 @@ const ResultsPage = (): JSX.Element => {
     <div className='results'>
       <Header showSearch searchDefault={search} />
       <main className='results__main'>
-        {isLoading && <p>Loading results ...</p>}
+        {isLoading && <ListFakeItemsSkeleton />}
 
         {!isLoading && !search && (
           <p className='results__stateMessage'>Start a search first.</p>
