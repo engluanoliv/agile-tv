@@ -1,0 +1,12 @@
+.results {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  &__main {
+    flex: 1;
+    padding: 24px;
+    grid-template-columns: repeat(3, 1fr);
+    display: grid;
+    gap: 24px;
+  }
+}

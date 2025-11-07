@@ -1,0 +1,44 @@
+.list {
+  display: flex;
+  flex-direction: column;
+  grid-column: span 2;
+  gap: 32px;
+    margin: 0 100px;
+  padding: 0 20px;
+
+  @media (max-width: 768px) {
+    grid-column: span 3;
+      margin: 0 auto;
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+  }
+
+  &__itemUrl {
+    font-size: 14px;
+    color: #202124;
+  }
+
+  &__itemTitle {
+    color: #1a0dab;
+    font-size: 20px;
+    line-height: 1.3;
+    margin-top: 2px;
+    cursor: pointer;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &__itemDescription {
+    font-size: 14px;
+    color: #4d5156;
+    margin-top: 6px;
+    line-height: 1.6;
+    max-width: 600px;
+  }
+}

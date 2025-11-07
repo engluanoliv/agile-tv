@@ -27,6 +27,9 @@
       "style": {
         "recommended": true,
         "useBlockStatements": "error"
+      },
+      "a11y": {
+        "useKeyWithClickEvents": "off"
       }
     }
   },

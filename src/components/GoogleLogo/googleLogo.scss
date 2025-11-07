@@ -1,0 +1,24 @@
+.google {
+  font-size: 80px;
+  margin-bottom: 25px;
+  font-weight: 600;
+
+  &__g1 {
+    color: var(--google-blue);
+  }
+  &__o1 {
+    color: var(--google-red);
+  }
+  &__o2 {
+    color: var(--google-yellow);
+  }
+  &__g2 {
+    color: var(--google-blue);
+  }
+  &__l {
+    color: var(--google-green);
+  }
+  &__e {
+    color: var(--google-red);
+  }
+}

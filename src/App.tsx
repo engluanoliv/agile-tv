@@ -1,7 +1,5 @@
+import AppRoutes from './routes/AppRoutes'
+
 export default function App(): JSX.Element {
-  return (
-    <>
-      <p>App</p>
-    </>
-  )
+  return <AppRoutes />
 }
