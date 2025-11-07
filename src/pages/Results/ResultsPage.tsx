@@ -1,50 +1,37 @@
 import ListFakeItems from '@/components/ListFakeItems/LisktFakeItems'
 import './resultsPage.scss'
 import Header from '@/components/Header/Header'
-import data from '@/data/faker-data'
 import type { FakerItem } from '@/types/faker-types'
-import { useEffect, useState } from 'react'
 import { useSearchParams } from 'react-router'
 import FakeItemCard from '@/components/FakeItemCard/FakeItemCard'
 import { useDialog } from '@/hooks/useDialog'
 import ListFakeItemsSkeleton from '@/components/ListFakeItemSkeleton/ListFakeItemsSkeleton'
+import StateMessage from '@/components/StateMessage/StateMessage'
+import { useFakeSearch } from '@/hooks/useFakerSearch'
+import { useEffect, useState } from 'react'
 
 const ResultsPage = (): JSX.Element => {
   const [params] = useSearchParams()
   const search = params.get('q') ?? ''
 
-  const [results, setResults] = useState<FakerItem[]>([])
-  const [isLoading, setIsLoading] = useState(false)
+  const { results, isLoading } = useFakeSearch(search)
+
   const [selectedItem, setSelectedItem] = useState<FakerItem | null>(null)
-
+  const [showCard, setShowCard] = useState(false)
   const { onOpen } = useDialog()
-
-  useEffect(() => {
-    if (!search) {
-      return
-    }
-
-    setIsLoading(true)
-    setResults([])
-    setSelectedItem(null)
-
-    const timeout = setTimeout(() => {
-      const filtered = data.filter(
-        (item) =>
-          item.title.toLowerCase().includes(search.toLowerCase()) ||
-          item.type.toLowerCase().includes(search.toLowerCase()),
-      )
-      setResults(filtered)
-      setIsLoading(false)
-    }, 1500)
-
-    return () => clearTimeout(timeout)
-  }, [search])
 
   const handleSelect = (item: FakerItem) => {
     setSelectedItem(item)
+    setShowCard(true)
     onOpen('fakerItemDialog', { item })
   }
+
+  useEffect(() => {
+    if (!search) {
+      setSelectedItem(null)
+      setShowCard(false)
+    }
+  }, [search])
 
   return (
     <div className='results'>
@@ -52,12 +39,10 @@ const ResultsPage = (): JSX.Element => {
       <main className='results__main'>
         {isLoading && <ListFakeItemsSkeleton />}
 
-        {!isLoading && !search && (
-          <p className='results__stateMessage'>Start a search first.</p>
-        )}
+        {!isLoading && !search && <StateMessage />}
 
         {!isLoading && search && !results.length && (
-          <p className='results__stateMessage'>No animals found.</p>
+          <StateMessage value={search} />
         )}
 
         {!isLoading && results.length > 0 && (
@@ -68,7 +53,7 @@ const ResultsPage = (): JSX.Element => {
           />
         )}
 
-        {selectedItem && <FakeItemCard item={selectedItem} />}
+        {selectedItem && showCard && <FakeItemCard item={selectedItem} />}
       </main>
     </div>
   )
