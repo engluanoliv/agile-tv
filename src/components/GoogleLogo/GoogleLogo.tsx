@@ -1,4 +1,4 @@
-import './GoogleLogo.scss'
+import './googleLogo.scss'
 
 const GoogleLogo = (): JSX.Element => {
   return (

@@ -1,8 +1,8 @@
 import './searchInput.scss'
-import Input from '@/components/ui/Input/Input'
+import Input from '@/components/ui/Input'
 import SearchRoundedIcon from '@mui/icons-material/SearchRounded'
 import CloseRoundedIcon from '@mui/icons-material/CloseRounded'
-import Button from '../ui/Button/Button'
+import Button from '../ui/Button'
 
 type SearchInputProps = {
   value: string

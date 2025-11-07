@@ -1,6 +1,6 @@
 import './FakerItemDialog.scss'
 import { useDialog } from '@/hooks/useDialog'
-import Dialog from '../ui/Dialog/Dialog'
+import Dialog from '../ui/Dialog'
 import FakeItemCard from '../FakeItemCard/FakeItemCard'
 
 const FakerItemDialog = (): JSX.Element => {

@@ -1,7 +1,7 @@
 import './searchForm.scss'
 
 import { useState, type FormEvent } from 'react'
-import Button from '../ui/Button/Button'
+import Button from '../ui/Button'
 import { useNavigate } from 'react-router'
 import SearchInput from '../SearchInput/SearchInput'
 
